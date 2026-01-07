@@ -7,7 +7,7 @@ const MaterialsUnavailable = () => {
       <p className="mt-4 text-lg">
         All materials on this website are currently unavailable. We will notify you when they are ready.{' '}
         <Link to="/contact#subscribe" className="underline">
-          Click here to subscribe to our email list, so that you don't miss our latest updates.
+          Click here to subscribe to our email list now, so that you don't miss our latest updates.
         </Link>
       </p>
     </div>
