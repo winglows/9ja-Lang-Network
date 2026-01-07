@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naijá Language Network | Celebrating Nigerian Pidgin Language & Culture</title>
+    <meta name="description" content="Naijá Language Network celebrates Nigerian Pidgin as a powerful force for unity, culture, and communication. Join scholars, writers, and creators in advancing Naijá." />
+    <meta name="keywords" content="Nigerian Pidgin, Naijá, Nigerian language, African languages, Pidgin English, Nigeria culture, language advocacy" />
+    <meta name="author" content="Naijá Language Network" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Naijá Language Network | Celebrating Nigerian Pidgin Language & Culture" />
+    <meta property="og:description" content="Celebrating Naijá — Nigeria's Pidgin Language & Culture. Connecting scholars, writers, creators, and community members worldwide." />
+    <meta property="og:site_name" content="Naijá Language Network" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Naijá Language Network | Nigerian Pidgin Language & Culture" />
+    <meta name="twitter:description" content="Celebrating Naijá — Nigeria's Pidgin Language & Culture. Connecting scholars, writers, creators, and community members worldwide." />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://naijanahelele.org" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

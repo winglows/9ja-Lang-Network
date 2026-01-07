@@ -1,0 +1,101 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content/pages/home.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Mission Title", name: "missionTitle", widget: "string" }
+          - { label: "Mission Description", name: "missionDescription", widget: "text" }
+
+      - label: "About Page"
+        name: "about"
+        file: "content/pages/about.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Introduction", name: "introduction", widget: "text" }
+          - { label: "Mission", name: "mission", widget: "markdown" }
+          - { label: "Vision", name: "vision", widget: "markdown" }
+          - { label: "History", name: "history", widget: "markdown" }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Category", name: "category", widget: "select", options: ["featured", "conferences", "workshops", "conversations"] }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Event Name", name: "title", widget: "string" }
+      - { label: "Start Date", name: "startDate", widget: "datetime" }
+      - { label: "End Date", name: "endDate", widget: "datetime", required: false }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Registration Link", name: "registrationUrl", widget: "string", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Virtual Event", name: "isVirtual", widget: "boolean", default: false }
+
+  - name: "team"
+    label: "Team Members"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+      - { label: "Twitter", name: "twitter", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+      - { label: "Is Core Team", name: "isCoreTeam", widget: "boolean", default: false }
+
+  - name: "resources"
+    label: "Resources"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Category", name: "category", widget: "select", options: ["dictionaries", "research", "pidgin-stew", "conference"] }
+      - { label: "Resource Type", name: "type", widget: "select", options: ["PDF", "Online", "Video"] }
+      - { label: "File", name: "file", widget: "file", required: false }
+      - { label: "External URL", name: "url", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
