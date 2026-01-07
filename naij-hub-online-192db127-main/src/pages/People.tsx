@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Linkedin, Twitter, Globe } from "lucide-react";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 const teamMembers = [
   {
@@ -69,6 +70,7 @@ const contributors = [
 ];
 
 const People = () => {
+  useScrollToTop();
   return (
     <Layout>
       {/* Hero */}

@@ -1,3 +1,4 @@
+import useScrollToTop from "@/hooks/useScrollToTop";
 import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { BookOpen, Users, Globe, Award, Target, Heart } from "lucide-react";
@@ -6,6 +7,7 @@ import missionImage from "@/assets/our-mission.jpg";
 import visionImage from "@/assets/our-vision.jpg";
 
 const About = () => {
+  useScrollToTop();
   return (
     <Layout>
       {/* Hero */}

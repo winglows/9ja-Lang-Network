@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, Download, ExternalLink, Newspaper, GraduationCap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const resources = [
   {
@@ -159,16 +160,15 @@ const Resources = () => {
                     <p className="text-muted-foreground text-sm mb-4">
                       {item.description}
                     </p>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="w-full"
-                    >
-                      <a href={item.link}>
+                    <Link to="/materials-unavailable" className="w-full">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full"
+                      >
                         {item.type === "PDF" ? "Download" : "Access Resource"}
-                      </a>
-                    </Button>
+                      </Button>
+                    </Link>
                   </div>
                 ))}
               </div>

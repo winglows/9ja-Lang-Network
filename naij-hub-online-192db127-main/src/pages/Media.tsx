@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 const videoCategories = {
   featured: [
@@ -29,6 +30,7 @@ const videoCategories = {
   ],};
 
 const Media = () => {
+  useScrollToTop();
   const [selectedVideo, setSelectedVideo] = useState<{ id: string; title: string } | null>(null);
 
   return (

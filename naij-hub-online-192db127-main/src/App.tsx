@@ -10,8 +10,26 @@ import Resources from "./pages/Resources";
 import People from "./pages/People";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import MaterialsUnavailable from "./pages/MaterialsUnavailable";
+import useScrollToTop from "./hooks/useScrollToTop";
 
 const queryClient = new QueryClient();
+
+const AppRoutes = () => {
+  useScrollToTop();
+  return (
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/media" element={<Media />} />
+      <Route path="/resources" element={<Resources />} />
+      <Route path="/people" element={<People />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/materials-unavailable" element={<MaterialsUnavailable />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,15 +37,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/media" element={<Media />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/people" element={<People />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

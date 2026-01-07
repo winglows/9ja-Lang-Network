@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send, Youtube, Instagram, Twitter, Facebook } from "lucide-react";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 const Contact = () => {
+  useScrollToTop();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -142,10 +144,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
                     <a
-                      href="mailto:info@naijanahelele.org"
+                      href="mailto:naijalanguagenetwork@gmail.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      info@naijanahelele.org
+                     naijalanguagenetwork@gmail.com
                     </a>
                   </div>
                 </div>
@@ -157,7 +159,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                     <a
-                      href="tel:+2341234567890"
+                      href="tel:+234 811 083 4786"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       +234 123 456 7890
@@ -172,7 +174,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Location</h3>
                     <p className="text-muted-foreground">
-                      Lagos, Nigeria<br />
+                      Ibadan, Nigeria<br />
                       & Virtual (Worldwide)
                     </p>
                   </div>
@@ -195,21 +197,27 @@ const Contact = () => {
                     <Youtube className="w-6 h-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/9jalanguagenetwork/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center hover:bg-green-dark transition-colors"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-6 h-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://x.com/Naija_na_Helele"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center hover:bg-green-dark transition-colors"
                     aria-label="Twitter"
                   >
                     <Twitter className="w-6 h-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://web.facebook.com/profile.php?id=61564386710628"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center hover:bg-green-dark transition-colors"
                     aria-label="Facebook"
                   >
