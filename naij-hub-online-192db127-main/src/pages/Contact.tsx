@@ -14,7 +14,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,16 +29,51 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(
+        "https://api.tally.so/v1/forms/pby5aP/submissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer tly-FJOz0s1g2YItQyjdoBrPb5GDC9ZnBpNz",
+          },
+          body: JSON.stringify({
+            data: {
+              fields: {
+                name: formData.name,
+                email: formData.email,
+                message: formData.message,
+              },
+            },
+          }),
+        }
+      );
 
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you as soon as possible.",
-    });
-
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const errorData = await response.json();
+        toast({
+          variant: "destructive",
+          title: "Failed to send message.",
+          description: errorData.message || "Please try again later.",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        variant: "destructive",
+        title: "An error occurred.",
+        description: "Please check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -98,18 +132,6 @@ const Contact = () => {
                       className="h-12"
                     />
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="What is this regarding?"
-                    required
-                    className="h-12"
-                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
