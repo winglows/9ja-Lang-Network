@@ -110,14 +110,6 @@ const Footer = () => {
           <p className="text-primary-foreground/60 text-sm">
             © {currentYear} Naijá Language Network. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-primary-foreground/60">
-            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-primary-foreground transition-colors">
-              Terms of Use
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

@@ -1,80 +1,13 @@
-import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import SectionHeader from "@/components/ui/SectionHeader";
+import { Mail, Phone, MapPin, Youtube, Instagram, Twitter, Facebook } from "lucide-react";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import TallyForm from "@/components/TallyForm";
+import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { toast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Youtube, Instagram, Twitter, Facebook } from "lucide-react";
-import useScrollToTop from "@/hooks/useScrollToTop";
 
 const Contact = () => {
   useScrollToTop();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch(
-        "https://api.tally.so/v1/forms/pby5aP/submissions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer tly-FJOz0s1g2YItQyjdoBrPb5GDC9ZnBpNz",
-          },
-          body: JSON.stringify({
-            data: {
-              fields: {
-                name: formData.name,
-                email: formData.email,
-                message: formData.message,
-              },
-            },
-          }),
-        }
-      );
-
-      if (response.ok) {
-        toast({
-          title: "Message sent successfully!",
-          description: "We'll get back to you as soon as possible.",
-        });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        const errorData = await response.json();
-        toast({
-          variant: "destructive",
-          title: "Failed to send message.",
-          description: errorData.message || "Please try again later.",
-        });
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        variant: "destructive",
-        title: "An error occurred.",
-        description: "Please check your connection and try again.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <Layout>
@@ -105,51 +38,7 @@ const Contact = () => {
               <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Send Us a Message
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                      className="h-12"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your@email.com"
-                      required
-                      className="h-12"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Your message..."
-                    required
-                    className="min-h-[150px] resize-none"
-                  />
-                </div>
-                <Button type="submit" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send className="ml-2 h-5 w-5" />
-                </Button>
-              </form>
+              <TallyForm />
             </div>
 
             {/* Contact Info */}
