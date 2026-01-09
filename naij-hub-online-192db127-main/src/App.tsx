@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Media from "./pages/Media";
 import Resources from "./pages/Resources";
-import People from "./pages/People";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import MaterialsUnavailable from "./pages/MaterialsUnavailable";
@@ -23,7 +22,6 @@ const AppRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/media" element={<Media />} />
       <Route path="/resources" element={<Resources />} />
-      <Route path="/people" element={<People />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/materials-unavailable" element={<MaterialsUnavailable />} />
       <Route path="*" element={<NotFound />} />
