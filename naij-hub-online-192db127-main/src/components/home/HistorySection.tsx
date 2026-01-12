@@ -62,12 +62,7 @@ const HistorySection = () => {
         </div>
 
         <div className="mt-16 p-8 bg-primary/5 border border-primary/20 rounded-lg">
-          <blockquote className="text-lg md:text-xl text-foreground italic font-serif text-center">
-            "Naijá no be broken English — na language wey get im own grammar, vocabulary, and soul."
-          </blockquote>
-          <p className="text-center text-muted-foreground mt-4">
-            — Celebrating Nigerian Pidgin as a complete language system
-          </p>
+          
         </div>
       </div>
     </section>

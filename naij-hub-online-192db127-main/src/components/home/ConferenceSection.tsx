@@ -7,8 +7,8 @@ const ConferenceSection = () => {
   return (
     <section className="section-padding bg-primary text-primary-foreground">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid lg:grid-cols-1 gap-12 items-center">
+          <div className="mx-auto max-w-3xl">
             <span className="inline-block text-gold font-semibold uppercase tracking-widest text-sm mb-4">
               Annual Conference
             </span>
@@ -49,21 +49,7 @@ const ConferenceSection = () => {
             </Button>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square bg-green-dark/50 p-8 lg:p-12">
-              <div className="h-full border-2 border-primary-foreground/30 p-6 lg:p-8 flex flex-col justify-center">
-                <blockquote className="font-serif text-xl lg:text-2xl italic leading-relaxed mb-6">
-                  "Naijá na di language wey dey join all Nigeria people togeda. 
-                  E dey carry our culture, our history, and our future."
-                </blockquote>
-                <cite className="text-primary-foreground/70 text-sm uppercase tracking-wide">
-                  —Naijá Language Network Community
-                </cite>
-              </div>
-            </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gold" />
-          </div>
+          
         </div>
       </div>
     </section>
