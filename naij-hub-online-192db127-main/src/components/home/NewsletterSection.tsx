@@ -1,23 +1,22 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { toast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 const NewsletterSection = () => {
-  const [email, setEmail] = useState("");
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://tally.so/widgets/embed.js";
+    script.onload = () => {
+      if (typeof Tally !== "undefined") {
+        Tally.loadEmbeds();
+      }
+    };
+    document.head.appendChild(script);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "Thank you for subscribing!",
-        description: "You'll receive updates about Naijá Na Helele.",
-      });
-      setEmail("");
-    }
-  };
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <section className="section-padding bg-secondary">
@@ -31,19 +30,15 @@ const NewsletterSection = () => {
           and the latest from the Naijá community.
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-grow h-12 bg-background border-border"
-            required
-          />
-          <Button type="submit" size="lg">
-            Subscribe
-          </Button>
-        </form>
+        <iframe
+          data-tally-src="https://tally.so/r/KYxxP8?dynamicStylesheet=tally"
+          loading="lazy"
+          width="100%"
+          height="300"
+          title="Newsletter Subscription"
+          className="mx-auto"
+          style={{ border: "none", width: "100%", height: "300px" }}
+        ></iframe>
 
         <p className="mt-6 text-sm text-muted-foreground">
           Or{" "}

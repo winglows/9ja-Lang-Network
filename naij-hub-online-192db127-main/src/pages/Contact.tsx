@@ -1,7 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import { Mail, Phone, MapPin, Youtube, Instagram, Twitter, Facebook } from "lucide-react";
 import useScrollToTop from "@/hooks/useScrollToTop";
-import TallyForm from "@/components/TallyForm";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,7 +37,13 @@ const Contact = () => {
               <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Send Us a Message
               </h2>
-              <TallyForm />
+              <iframe
+                src="https://tally.so/r/pby5aP?transparentBackground=1"
+                width="100%"
+                height="500"
+                frameBorder="0"
+                title="Contact Form"
+              ></iframe>
             </div>
 
             {/* Contact Info */}
@@ -137,35 +142,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Newsletter Signup */}
-              <div className="mt-10 p-6 bg-secondary">
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                  Subscribe to Our Newsletter
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Get updates on conferences, resources, and community news.
-                </p>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    toast({
-                      title: "Subscribed!",
-                      description: "You'll receive our newsletter soon.",
-                    });
-                  }}
-                  className="flex gap-3"
-                >
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    required
-                    className="h-11 bg-background"
-                  />
-                  <Button type="submit" size="default">
-                    Subscribe
-                  </Button>
-                </form>
-              </div>
+           
             </div>
           </div>
         </div>

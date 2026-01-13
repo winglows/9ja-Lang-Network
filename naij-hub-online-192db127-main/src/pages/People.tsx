@@ -2,6 +2,7 @@ import { Linkedin, Twitter, Globe, User } from "lucide-react";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import Egbokhare from "@/assets/Professor-Egbokhare.jpg";
 import Akinmade from "@/assets/Professor-Akinmade.jpg";
+import Odirin  from "@/assets/Dr-Odirin.jpg";
 import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -25,10 +26,10 @@ const teamMembers = [
     image: Akinmade,
   },
   {
-    name: "Name",
-    role: "Role",
-    bio: "Description",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h_400&fit=crop&crop=face",
+    name: "Odirin V. Abonyi",
+    role: "Secretary",
+    bio: "Odirin V. Abonyi holds a PhD in Linguistics, MPhil and M.A. in English (University of Ibadan) and a B.A. in English and Literary studies (DELSU). He is a Fellow of the National African Language Resource Centre (NALRC), the Ife Institute of Advanced Studies (IIAS) and an Affiliate Fellow of the Tsikinya-Chaka Centre, University of Wits. He currently serves as a Member of the Editorial Board of the Journal of Pidgin and Creole Languages and the Secretary of the Naija Studies Association and Naija Language Network. He is a grant awardee of various institutions including the Universities of Warwick and Edinburgh.",
+    image: Odirin,
   },
 ];
 

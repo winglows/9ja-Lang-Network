@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 
-const TallyForm = () => {
+interface TallyFormProps {
+  formUrl: string;
+  title: string;
+}
+
+const TallyForm: React.FC<TallyFormProps> = ({ formUrl, title }) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://tally.so/widgets/embed.js";
@@ -14,12 +19,12 @@ const TallyForm = () => {
   return (
     <div style={{ overflow: "hidden", height: "475px", width: "100%" }}>
       <iframe
-        data-tally-src="https://tally.so/r/pby5aP?transparentBackground=1"
+        data-tally-src={formUrl}
         loading="lazy"
         width="100%"
         height="100%"
         frameBorder="0"
-        title="Contact Us"
+        title={title}
       ></iframe>
     </div>
   );
