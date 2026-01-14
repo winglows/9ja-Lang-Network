@@ -2,7 +2,8 @@ import { Linkedin, Twitter, Globe, User } from "lucide-react";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import Egbokhare from "@/assets/Professor-Egbokhare.jpg";
 import Akinmade from "@/assets/Professor-Akinmade.jpg";
-import Odirin  from "@/assets/Dr-Odirin.jpg";
+import Roselyn from "@/assets/Roselyn.jpg";
+import Odirin from "@/assets/Dr-Odirin.jpg";
 import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -17,7 +18,7 @@ const teamMembers = [
     name: "Roselyn Oludedewa Osewa",
     role: "Vice President",
     bio: "She holds a PhD in Linguistics and has been teaching phonology at the university of Benin for several decades.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    image: Roselyn,
   },
   {
     name: "Professor Akinmade Timothy Akande",
@@ -81,7 +82,7 @@ const People = () => {
               Meet the Team
             </h1>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              The passionate scholars, creators, and advocates driving the 
+              The passionate scholars, creators, and advocates driving the
               celebration and advancement of Naijá.
             </p>
           </div>
@@ -98,22 +99,40 @@ const People = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div
-                key={member.name}
-                className="group text-center"
-              >
+              <div key={member.name} className="group text-center">
                 <div className="relative mb-6 overflow-hidden aspect-square">
-                  {index === 1 || index === 3 ? (
+                  {/* {index === 1 || index === 3 ? (
                     <div className="w-full h-full bg-muted flex items-center justify-center">
                       <User className="w-1/2 h-1/2 text-muted-foreground" />
                     </div>
                   ) : (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  )}
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}   */}
+
+                  {/* Core Team Section - Image Logic */}
+                  <div className="relative mb-6 overflow-hidden aspect-square">
+                    {/* CHANGE THIS LINE: Check if member.image actually has a value */}
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-muted flex items-center justify-center">
+                        <User className="w-1/2 h-1/2 text-muted-foreground" />
+                      </div>
+                    )}
+
+                    {/* Overlay and Social Icons remain the same... */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* ... rest of the social links code */}
+                  </div>
+
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
@@ -168,8 +187,12 @@ const People = () => {
                   <h3 className="font-serif text-lg font-semibold text-foreground">
                     {contributor.name}
                   </h3>
-                  <p className="text-primary text-sm font-medium">{contributor.role}</p>
-                  <p className="text-muted-foreground text-xs">{contributor.description}</p>
+                  <p className="text-primary text-sm font-medium">
+                    {contributor.role}
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {contributor.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -185,7 +208,7 @@ const People = () => {
             Join Our Community
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
-            Whether you're a scholar, creator, or simply passionate about Naijá, 
+            Whether you're a scholar, creator, or simply passionate about Naijá,
             there's a place for you in our community.
           </p>
           <a

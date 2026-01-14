@@ -18,10 +18,10 @@ const About = () => {
               About Us
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Celebrating the Voice of Nigeria Pidgin
+              Celebrating the Voice of Naijá
             </h1>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              To initiate and facilitate sustainable the linguistic praxis and practice of Naijá, other Pidgins and Creoles, hybrid languages, borderline languages, buffer and exo languages
+              To initiate and facilitate sustainable linguistic praxis and practice of Naijá, other Pidgins and Creoles, hybrid languages, borderline languages, buffer and exo languages.
 
             </p>
           </div>
@@ -43,15 +43,14 @@ const About = () => {
                 <h2 className="font-serif text-3xl font-semibold">Who We Are</h2>
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-             The Naijá Studies Association is the arm of the Network that carries out scholarly research in Naijá. In 2025, the maiden edition of the Interdisciplinary Journal of Pidgin and Creoles was published and presented at the Naijá na Selense Conference. Scholarly articles on the aspects of the Naijá grammar, orthography, pragmatics and others are featured therein.
-
-            Before this, it has achieved a milestone in facilitating the first major Exhibition of book and video materials of Naijá translations produced by the Jehovah's Witnesses organisation. This Exhibition was complemented by the Panel presentation entitled "Impacting Lives with a Language of the Heart: The Translation Work of Jehovah's Witnesses in Nigeria
-
+                 The Naijá Language Network (NLN) is the parent body of the Naijá Studies Association (NSA). Beginning with about two dozen members in 2024 at the Naijá na Hélélé  Conference , the NLN instituted the NSA to carry out academic research in Naijá. In 2025, the maiden edition of the Interdisciplinary Journal of Pidgin and Creoles was published and presented at the Naijá na Selense Conference.
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                The Naijá Language Network is an umbrella body that has created a community of users, researchers, students who interact under its purely academic forum, the Naijá Studies Association. Beginning with about two dozen members in 2024, the community now embraces language enthusiasts, practitioners and industry experts from all over Nigeria and beyond.
 
-                The New Naijá Anthem Challenge was spearheaded by the Naijá Language Network as part of the Naijá Festival. One of the primary objectives was to create an awareness amongst the youth population in the reception of the New Nigerian Anthem and test the translation skills of the contestants. Multiple-Blessing got the 1st prize; Submissions of poems, and short narratives were received and a publication is underway to curate these identity cum artifact
+              <p className="text-muted-foreground text-lg leading-relaxed">
+              Scholarly articles on the aspects of the Naijá grammar, orthography, pragmatics and others are featured therein.
+
+            Before this, it has achieved a milestone in facilitating the first major Exhibition of book and video materials of Naijá translations produced by the Jehovah's Witnesses organisation. This Exhibition was complemented by the Panel presentation entitled "Impacting Lives with a Language of the Heart: The Translation Work of Jehovah's Witnesses in Nigeria." 
+
               </p>
             </div>
             <div className="hidden lg:block">
