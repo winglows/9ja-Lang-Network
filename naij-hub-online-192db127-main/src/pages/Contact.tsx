@@ -11,17 +11,17 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary">
+      <section className="pt-32 pb-16 bg-green-800">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <span className="inline-block text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
               Contact Us
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
               Get in Touch
             </h1>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              Have questions, suggestions, or want to collaborate? 
+            <p className="text-white/90 text-xl leading-relaxed">
+              Have questions, suggestions, or want to collaborate?
               We'd love to hear from you.
             </p>
           </div>
@@ -51,7 +51,7 @@ const Contact = () => {
               <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Contact Information
               </h2>
-              
+
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-secondary flex items-center justify-center flex-shrink-0">
@@ -63,7 +63,7 @@ const Contact = () => {
                       href="mailto:naijalanguagenetwork@gmail.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                     naijalanguagenetwork@gmail.com
+                      naijalanguagenetwork@gmail.com
                     </a>
                   </div>
                 </div>
@@ -142,7 +142,7 @@ const Contact = () => {
                 </div>
               </div>
 
-           
+
             </div>
           </div>
         </div>

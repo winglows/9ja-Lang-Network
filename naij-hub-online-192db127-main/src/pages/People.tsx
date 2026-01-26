@@ -72,16 +72,16 @@ const People = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary">
+      <section className="pt-32 pb-16 bg-green-800">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <span className="inline-block text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
               Our People
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
               Meet the Team
             </h1>
-            <p className="text-muted-foreground text-xl leading-relaxed">
+            <p className="text-white/90 text-xl leading-relaxed">
               The passionate scholars, creators, and advocates driving the
               celebration and advancement of Naijá.
             </p>

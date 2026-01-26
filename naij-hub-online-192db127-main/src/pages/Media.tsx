@@ -16,7 +16,7 @@ const videoCategories = {
   featured: [
     { id: "pGG3z-eXgGw", title: "In Memoriam PROFESSOR BEN ELUGBE", description: "A tribute to Professor Ben Elugbe." },
     { id: "9pLpDpAKn3Q", title: "Eshobe", description: "Enjoy all the scenes of Eshobe ('apes obey' in full), a translation of George Orwell's Classical fable 'Animal Farm'." },
-    { id: "qld3TC0CfBM", title: "Prof Francis Egbokhare on his translating Animal Farm to Eshobe",  description: "Professor Francis Egbokhare of the Department of Linguistics and African Languages translated George Orwell's political satire presented as the fable 'Animal Farm' to Naija a.k.a Nigerian Pidgin." },
+    { id: "qld3TC0CfBM", title: "Prof Francis Egbokhare on his translating Animal Farm to Eshobe", description: "Professor Francis Egbokhare of the Department of Linguistics and African Languages translated George Orwell's political satire presented as the fable 'Animal Farm' to Naija a.k.a Nigerian Pidgin." },
   ],
   conferences: [
     { id: "rpDEtBAIkjI", title: "Naijá na Hẹlẹlẹ Ibadan Conference Jingle", description: "Highlights from our conference." },
@@ -27,7 +27,8 @@ const videoCategories = {
     { id: "DxiY1vhATSk", title: " Prize Winner", description: "Recital/Singing of translation of New National Anthem in Nigerian Pidgin." },
     { id: "0ysB5kgZ7Q0", title: "First Nigerian Pidgin Dictionary", description: "Learn Nigerian Pidgin the easy way." },
     { id: "xOZm579isR8", title: "Naijá na Hẹlẹlẹ", description: "A special feature video from the Naija Language Network." },
-  ],};
+  ],
+};
 
 const Media = () => {
   useScrollToTop();
@@ -36,17 +37,17 @@ const Media = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary">
+      <section className="pt-32 pb-16 bg-green-800">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <span className="inline-block text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
               Media Gallery
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
               Watch & Listen
             </h1>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              Explore videos from the Naija Language Network featuring conferences, 
+            <p className="text-white/90 text-xl leading-relaxed">
+              Explore videos from the Naija Language Network featuring conferences,
               workshops, conversations, and cultural content celebrating Naijá.
             </p>
           </div>

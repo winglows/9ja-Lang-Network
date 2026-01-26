@@ -103,23 +103,101 @@ const resources = [
   },
 ];
 
+const featuredResources = [
+  resources[0].items[0], // Naijá-English Dictionary
+  resources[1].items[2], // Language Policy and Naijá
+  resources[2].items[0], // Pidgin Stew Podcast Archive
+  resources[3].items[1], // Workshop Handouts
+];
+
 const Resources = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary">
+      <section className="pt-32 pb-16 bg-green-800">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <span className="inline-block text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
               Resources
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
               Learn & Explore
             </h1>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              Access dictionaries, scholarly materials, course resources, and more 
-              to deepen your understanding and appreciation of Nigerian Pidgin.
+            <p className="text-white/90 text-xl leading-relaxed">
+              Featuring Naijá together with indigenous Nigerian/African languages as global generational artifacts from the past, to the present, and the future.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Naijá Language History */}
+      <section className="section-padding bg-cream">
+        <div className="container-wide">
+          <SectionHeader
+            title="Naijá Language"
+            subtitle="The Story of Naijá"
+          />
+
+          <div className="max-w-4xl mx-auto space-y-8">
+
+
+            <div className="prose prose-lg max-w-none">
+              <p className="text-muted-foreground text-xl leading-relaxed">
+                The language is traceable to the early efforts of the Dutch and then the Portuguese in the 14th Century. Around the 18th -19th century, the trade relations between the British and hinterland areas of the West Africa Coast gave birth to the form and forms that gradually began to spread and creolise in areas of present day Niger Delta region of Nigeria. Naijá represents a form of that early language which today is commonly spoken across Nigeria, parts of West and Central Africa and in many parts where the diaspora populations thrive in Europe.
+              </p>
+
+              <p className="text-muted-foreground text-xl leading-relaxed mt-6">
+                From the point of its creolisation in the Niger Delta to its current spread and use in domains as religion, subculture, politics, sports and entertainment, conservatively, its evolution spans nearly five decades. But its history to the present evolution spans more than four centuries.
+              </p>
+
+              <p className="text-muted-foreground text-xl leading-relaxed mt-6">
+                Today, Naijá is a language of music, film, literature, and everyday communication.
+                It features prominently in Nollywood films, Afrobeats music, and Nigerian social
+                media. As a symbol of Nigerian identity and unity, Naijá continues to grow in
+                prestige and formal recognition.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-4 text-center">Featured Resources</h3>
+            <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-8">
+              Access dictionaries, scholarly materials, course resources, and more to deepen your understanding and appreciation of Nigerian Pidgin.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {featuredResources.map((item) => (
+                <div
+                  key={item.title}
+                  className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
+                      {item.type}
+                    </span>
+                    {item.type === "PDF" ? (
+                      <Download className="w-5 h-5 text-muted-foreground" />
+                    ) : (
+                      <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                    )}
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                    {item.description}
+                  </p>
+                  <Link to="/materials-unavailable" className="w-full">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full"
+                    >
+                      {item.type === "PDF" ? "Download" : "Access Resource"}
+                    </Button>
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -184,7 +262,7 @@ const Resources = () => {
             Contribute to Our Resources
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Have research, translations, or educational materials to share? 
+            Have research, translations, or educational materials to share?
             We welcome contributions from the Naijá community.
           </p>
           <Button asChild size="lg">
