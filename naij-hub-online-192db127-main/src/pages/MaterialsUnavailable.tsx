@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
-import BackgroundImage from '../assets/slide-1.jpg';
+import BackgroundImage from '../assets/slide.webp';
 
 const MaterialsUnavailable = () => {
   return (
     <Layout>
       <div
-        className="flex flex-col items-center justify-center min-h-screen text-center text-gray-300"
+        className="flex flex-col items-center justify-center h-[70vh] text-center text-gray-300 relative overflow-hidden pt-20"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${BackgroundImage})`,
           backgroundSize: 'cover',

@@ -1,9 +1,11 @@
 import Layout from "@/components/layout/Layout";
-import { Mail, Phone, MapPin, Youtube, Instagram, Twitter, Facebook } from "lucide-react";
+import { Mail, MapPin, Youtube, Instagram, Twitter, Facebook } from "lucide-react";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import bannerImage from "@/assets/about-us-pics/about-us-pics2.jpeg";
+
 
 const Contact = () => {
   useScrollToTop();
@@ -11,19 +13,18 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-green-800">
-        <div className="container-wide">
+      <section className="relative h-[70vh] flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={bannerImage} alt="Hero Background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+        <div className="container-wide relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
+
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
               Contact Us
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-              Get in Touch
             </h1>
-            <p className="text-white/90 text-xl leading-relaxed">
-              Have questions, suggestions, or want to collaborate?
-              We'd love to hear from you.
-            </p>
+
           </div>
         </div>
       </section>
@@ -68,20 +69,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-secondary flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <a
-                      href="tel:+234 811 083 4786"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      +234 123 456 7890
-                    </a>
-                  </div>
-                </div>
+
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-secondary flex items-center justify-center flex-shrink-0">

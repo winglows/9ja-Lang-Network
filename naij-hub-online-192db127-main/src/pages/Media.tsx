@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useScrollToTop from "@/hooks/useScrollToTop";
+import bannerImage from "@/assets/resources/Resources8.jpeg";
+
 
 const videoCategories = {
   featured: [
@@ -37,19 +39,18 @@ const Media = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-green-800">
-        <div className="container-wide">
+      <section className="relative h-[70vh] flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={bannerImage} alt="Hero Background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+        <div className="container-wide relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
-              Media Gallery
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-              Watch & Listen
+
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+              Watch & Learn
             </h1>
-            <p className="text-white/90 text-xl leading-relaxed">
-              Explore videos from the Naija Language Network featuring conferences,
-              workshops, conversations, and cultural content celebrating Naijá.
-            </p>
+
           </div>
         </div>
       </section>

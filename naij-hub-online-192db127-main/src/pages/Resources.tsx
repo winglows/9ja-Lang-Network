@@ -3,6 +3,8 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, Download, ExternalLink, Newspaper, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
+import bannerImage from "@/assets/banners/Banner4Resources.jpeg";
+
 
 const resources = [
   {
@@ -114,13 +116,17 @@ const Resources = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-green-800">
-        <div className="container-wide">
+      <section className="relative h-[70vh] flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={bannerImage} alt="Hero Background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+        <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
               Resources
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
               Learn & Explore
             </h1>
             <p className="text-white/90 text-xl leading-relaxed">
@@ -159,7 +165,7 @@ const Resources = () => {
             </div>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-24 border-2 border-primary p-8 rounded-none bg-background">
             <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-4 text-center">Featured Resources</h3>
             <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-8">
               Access dictionaries, scholarly materials, course resources, and more to deepen your understanding and appreciation of Nigerian Pidgin.
@@ -202,58 +208,103 @@ const Resources = () => {
         </div>
       </section>
 
-      {/* Resources Grid */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          {resources.map((category, categoryIndex) => (
-            <div key={category.category} className={categoryIndex > 0 ? "mt-16" : ""}>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-primary flex items-center justify-center">
-                  <category.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground">
-                  {category.category}
-                </h2>
-              </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.items.map((item) => (
-                  <div
-                    key={item.title}
-                    className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
-                        {item.type}
-                      </span>
-                      {item.type === "PDF" ? (
-                        <Download className="w-5 h-5 text-muted-foreground" />
-                      ) : (
-                        <ExternalLink className="w-5 h-5 text-muted-foreground" />
-                      )}
-                    </div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      {item.description}
-                    </p>
-                    <Link to="/materials-unavailable" className="w-full">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full"
-                      >
-                        {item.type === "PDF" ? "Download" : "Access Resource"}
-                      </Button>
-                    </Link>
-                  </div>
-                ))}
-              </div>
+      {/* Emai Language */}
+      <section className="section-padding bg-secondary/20">
+        <div className="container-wide">
+          <SectionHeader
+            title="Emai Language"
+            subtitle="Origin"
+          />
+
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-muted-foreground text-xl leading-relaxed">
+                Emai (Emai-Iuleha-Ora) is a stable indigenous language of Nigeria. It belongs to the Niger-Congo language family. The language is used as a first language by all in the ethnic community. It is not known to be taught in schools.
+              </p>
             </div>
-          ))}
+          </div>
+
+          <div className="mt-24 border-2 border-primary p-8 rounded-none bg-background">
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-4 text-center">Featured Resources</h3>
+            <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-8">
+              Access dictionaries, scholarly materials, course resources, and more to deepen your understanding and appreciation of Emai.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <a
+                href="https://share.google/ZR3Koan7bXcXTSDWL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background block"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
+                    Online
+                  </span>
+                  <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                </div>
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+                  Emai Language Resources
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  Comprehensive collection of Emai language materials available on Google Books.
+                </p>
+                <Button variant="outline" size="sm" className="w-full">
+                  Access Resource
+                </Button>
+              </a>
+
+              <a
+                href="https://share.google/EtC46ijwORx2KXNeG"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background block"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
+                    Online
+                  </span>
+                  <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                </div>
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+                  Emai Language Study Materials
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  Academic materials and publications on Emai language from Blackwell's.
+                </p>
+                <Button variant="outline" size="sm" className="w-full">
+                  Access Resource
+                </Button>
+              </a>
+
+              <a
+                href="https://openlibrary.org/works/OL23830644W/New_perspectives_in_Edoid_studies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background block"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
+                    Online
+                  </span>
+                  <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                </div>
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
+                  New Perspectives in Edoid Studies
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  Academic research by Ronald P. Schaefer, Ohioma Ifounu Pogoson, and Francis O. Egbokhare on Edoid languages including Emai.
+                </p>
+                <Button variant="outline" size="sm" className="w-full">
+                  Access Resource
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
+
+
 
       {/* CTA */}
       <section className="section-padding bg-cream">
