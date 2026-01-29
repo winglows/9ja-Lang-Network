@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useScrollToTop from "@/hooks/useScrollToTop";
-import bannerImage from "@/assets/resources/Resources8.jpeg";
+import bannerImage from "@/assets/9ja-Resources/Resources8.jpeg";
 
 
 const videoCategories = {
@@ -56,14 +56,14 @@ const Media = () => {
       </section>
 
       {/* Featured Video */}
-      <section className="section-padding bg-foreground">
+      <section className="section-padding bg-primary">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-center font-serif text-2xl text-primary-foreground mb-8">
               Latest from Naija Language Network
             </h2>
             <div className="aspect-video">
-              <YouTubeEmbed videoId="pGG3z-eXgGw" title="Latest Video" />
+              <YouTubeEmbed videoId="jBV6w30PFTo" title="Latest Video" />
             </div>
             <div className="mt-6 text-center">
               <Button

@@ -1,118 +1,56 @@
 import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { BookOpen, FileText, Download, ExternalLink, Newspaper, GraduationCap } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ExternalLink, X, Search } from "lucide-react";
+import { useState } from "react";
 import bannerImage from "@/assets/banners/Banner4Resources.jpeg";
 
+// Import images from 9ja-Resources
+import res0 from "@/assets/9ja-Resources/resources0.jpeg";
+import res1 from "@/assets/9ja-Resources/Resources1.jpeg";
+import res2 from "@/assets/9ja-Resources/Resources2.jpeg";
+import res4 from "@/assets/9ja-Resources/Resources4.jpeg";
+import res5 from "@/assets/9ja-Resources/Resources5.jpeg";
+import res6 from "@/assets/9ja-Resources/Resources6.jpeg";
+import res7 from "@/assets/9ja-Resources/Resources7.jpeg";
+import res8 from "@/assets/9ja-Resources/Resources8.jpeg";
+import res10 from "@/assets/9ja-Resources/Resources10.jpeg";
+import res11 from "@/assets/9ja-Resources/Resources11.jpeg";
+import res12 from "@/assets/9ja-Resources/Resources12.jpeg";
 
-const resources = [
-  {
-    category: "Dictionaries & References",
-    icon: BookOpen,
-    items: [
-      {
-        title: "Naijá-English Dictionary",
-        description: "Comprehensive dictionary with over 5,000 Naijá words and phrases with English translations.",
-        type: "Online",
-        link: "#",
-      },
-      {
-        title: "Naijá Grammar Guide",
-        description: "A complete guide to Nigerian Pidgin grammar, syntax, and usage patterns.",
-        type: "PDF",
-        link: "#",
-      },
-      {
-        title: "Common Expressions in Naijá",
-        description: "A collection of everyday expressions and idioms used in Nigerian Pidgin.",
-        type: "Online",
-        link: "#",
-      },
-    ],
-  },
-  {
-    category: "Research & Publications",
-    icon: GraduationCap,
-    items: [
-      {
-        title: "The Sociolinguistics of Nigerian Pidgin",
-        description: "Academic paper exploring the social factors influencing Naijá usage and development.",
-        type: "PDF",
-        link: "#",
-      },
-      {
-        title: "Naijá in Nigerian Media",
-        description: "Research on the representation and use of Pidgin in Nollywood and Nigerian music.",
-        type: "PDF",
-        link: "#",
-      },
-      {
-        title: "Language Policy and Naijá",
-        description: "Analysis of policy implications for recognizing Naijá as an official language.",
-        type: "PDF",
-        link: "#",
-      },
-    ],
-  },
-  {
-    category: "Pidgin Stew Resources",
-    icon: Newspaper,
-    items: [
-      {
-        title: "Pidgin Stew Podcast Archive",
-        description: "Complete archive of our popular podcast series featuring conversations in Naijá.",
-        type: "Online",
-        link: "#",
-      },
-      {
-        title: "Naijá Story Collection",
-        description: "Short stories and folktales written entirely in Nigerian Pidgin.",
-        type: "PDF",
-        link: "#",
-      },
-      {
-        title: "Learn Naijá Course Materials",
-        description: "Self-study materials for learning Nigerian Pidgin from scratch.",
-        type: "PDF",
-        link: "#",
-      },
-    ],
-  },
-  {
-    category: "Conference Materials",
-    icon: FileText,
-    items: [
-      {
-        title: "Conference Proceedings 2024",
-        description: "Papers and presentations from the Naijá na Hẹlẹlẹ Conference 2024.",
-        type: "PDF",
-        link: "#",
-      },
-      {
-        title: "Workshop Handouts",
-        description: "Materials from writing, translation, and advocacy workshops.",
-        type: "PDF",
-        link: "#",
-      },
-      {
-        title: "Presentation Slides Archive",
-        description: "Slide decks from keynote speakers and panel discussions.",
-        type: "PDF",
-        link: "#",
-      },
-    ],
-  },
+// Import images from Emai Resources
+import emai1 from "@/assets/Emai Resources/Screenshot 2026-01-29 174000.png";
+import emai2 from "@/assets/Emai Resources/Screenshot 2026-01-29 174105.png";
+import emai3 from "@/assets/Emai Resources/Screenshot 2026-01-29 174151.png";
+
+const naijaGallery = [
+  res1, res2, res4, res5, res6, res7, res8, res10, res11, res12, res0
 ];
 
-const featuredResources = [
-  resources[0].items[0], // Naijá-English Dictionary
-  resources[1].items[2], // Language Policy and Naijá
-  resources[2].items[0], // Pidgin Stew Podcast Archive
-  resources[3].items[1], // Workshop Handouts
+const EmaiLinks = [
+  {
+    title: "Emai Language Resources",
+    desc: "Comprehensive collection of Emai language materials available on Google Books.",
+    link: "https://share.google/ZR3Koan7bXcXTSDWL",
+    img: emai1
+  },
+  {
+    title: "Emai Study Materials",
+    desc: "Academic materials and publications on Emai language from Blackwell's.",
+    link: "https://share.google/EtC46ijwORx2KXNeG",
+    img: emai2
+  },
+  {
+    title: "Edoid Studies Perspectives",
+    desc: "Research by Ronald P. Schaefer, Ohioma Ifounu Pogoson, and Francis O. Egbokhare.",
+    link: "https://openlibrary.org/works/OL23830644W/New_perspectives_in_Edoid_studies",
+    img: emai3
+  }
 ];
 
 const Resources = () => {
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+
   return (
     <Layout>
       {/* Hero */}
@@ -137,186 +75,125 @@ const Resources = () => {
       </section>
 
       {/* Naijá Language History */}
-      <section className="section-padding bg-cream">
+      <section className="py-16 md:py-24 bg-primary/5">
         <div className="container-wide">
           <SectionHeader
             title="Naijá Language"
             subtitle="The Story of Naijá"
           />
-
-          <div className="max-w-4xl mx-auto space-y-8">
-
-
-            <div className="prose prose-lg max-w-none">
-              <p className="text-muted-foreground text-xl leading-relaxed">
-                The language is traceable to the early efforts of the Dutch and then the Portuguese in the 14th Century. Around the 18th -19th century, the trade relations between the British and hinterland areas of the West Africa Coast gave birth to the form and forms that gradually began to spread and creolise in areas of present day Niger Delta region of Nigeria. Naijá represents a form of that early language which today is commonly spoken across Nigeria, parts of West and Central Africa and in many parts where the diaspora populations thrive in Europe.
-              </p>
-
-              <p className="text-muted-foreground text-xl leading-relaxed mt-6">
-                From the point of its creolisation in the Niger Delta to its current spread and use in domains as religion, subculture, politics, sports and entertainment, conservatively, its evolution spans nearly five decades. But its history to the present evolution spans more than four centuries.
-              </p>
-
-              <p className="text-muted-foreground text-xl leading-relaxed mt-6">
-                Today, Naijá is a language of music, film, literature, and everyday communication.
-                It features prominently in Nollywood films, Afrobeats music, and Nigerian social
-                media. As a symbol of Nigerian identity and unity, Naijá continues to grow in
-                prestige and formal recognition.
-              </p>
-            </div>
+          <div className="max-w-4xl mx-auto mb-16 space-y-6">
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+              The language is traceable to the early efforts of the Dutch and then the Portuguese in the 14th Century. Around the 18th -19th century, the trade relations between the British and hinterland areas of the West Africa Coast gave birth to the form and forms that gradually began to spread and creolise in areas of present day Niger Delta region of Nigeria. Naijá represents a form of that early language which today is commonly spoken across Nigeria, parts of West and Central Africa and in many parts where the diaspora populations thrive in Europe.
+            </p>
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+              From the point of its creolisation in the Niger Delta to its current spread and use in domains as religion, subculture, politics, sports and entertainment, conservatively, its evolution spans nearly five decades. But its history to the present evolution spans more than four centuries.
+            </p>
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed border-l-4 border-primary pl-6 font-medium italic">
+              Today, Naijá is a language of music, film, literature, and everyday communication. It features prominently in Nollywood films, Afrobeats music, and Nigerian social media. As a symbol of Nigerian identity and unity, Naijá continues to grow in prestige and formal recognition.
+            </p>
           </div>
 
-          <div className="mt-24 border-2 border-primary p-8 rounded-none bg-background">
-            <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-4 text-center">Featured Resources</h3>
-            <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-8">
-              Access dictionaries, scholarly materials, course resources, and more to deepen your understanding and appreciation of Nigerian Pidgin.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredResources.map((item) => (
-                <div
-                  key={item.title}
-                  className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
-                      {item.type}
-                    </span>
-                    {item.type === "PDF" ? (
-                      <Download className="w-5 h-5 text-muted-foreground" />
-                    ) : (
-                      <ExternalLink className="w-5 h-5 text-muted-foreground" />
-                    )}
-                  </div>
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                    {item.description}
-                  </p>
-                  <Link to="/materials-unavailable" className="w-full">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full"
-                    >
-                      {item.type === "PDF" ? "Download" : "Access Resource"}
-                    </Button>
-                  </Link>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {naijaGallery.map((img, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedImg(img)}
+                className="group relative aspect-[3/4] bg-secondary/10 rounded-2xl overflow-hidden cursor-pointer border border-border/50 hover:border-primary/50 transition-all duration-500 shadow-sm hover:shadow-2xl hover:-translate-y-2"
+              >
+                <img
+                  src={img}
+                  alt={`Resource ${idx + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary text-xs font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 flex items-center gap-2">
+                  <Search className="w-4 h-4" /> Click to View
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Modal View */}
+      {selectedImg && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in duration-300"
+          onClick={() => setSelectedImg(null)}
+        >
+          <button
+            className="absolute top-6 right-6 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors z-[110]"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImg(null);
+            }}
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <img
+            src={selectedImg}
+            alt="Resource Full View"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-500 border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       {/* Emai Language */}
-      <section className="section-padding bg-secondary/20">
+      <section className="py-20 md:py-32 bg-[#fffcf5] border-t border-amber-100/50 overflow-hidden">
         <div className="container-wide">
           <SectionHeader
             title="Emai Language"
-            subtitle="Origin"
+            subtitle="Origin & Legacy"
           />
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="prose prose-lg max-w-none">
-              <p className="text-muted-foreground text-xl leading-relaxed">
-                Emai (Emai-Iuleha-Ora) is a stable indigenous language of Nigeria. It belongs to the Niger-Congo language family. The language is used as a first language by all in the ethnic community. It is not known to be taught in schools.
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="bg-background/80 backdrop-blur-md p-10 rounded-3xl border border-primary/10 shadow-sm">
+              <p className="text-muted-foreground text-xl leading-relaxed text-center font-medium italic">
+                "Emai (Emai-Iuleha-Ora) is a stable indigenous language of Nigeria. It belongs to the Niger-Congo language family. The language is used as a first language by all in the ethnic community. It is not known to be taught in schools."
               </p>
             </div>
           </div>
 
-          <div className="mt-24 border-2 border-primary p-8 rounded-none bg-background">
-            <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-4 text-center">Featured Resources</h3>
-            <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-8">
-              Access dictionaries, scholarly materials, course resources, and more to deepen your understanding and appreciation of Emai.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {EmaiLinks.map((item, idx) => (
               <a
-                href="https://share.google/ZR3Koan7bXcXTSDWL"
+                key={idx}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background block"
+                className="group bg-background aspect-square overflow-hidden rounded-3xl shadow-lg border border-border/50 hover:border-primary transition-all duration-500 relative flex flex-col"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
-                    Online
-                  </span>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                <div className="h-2/3 overflow-hidden relative">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
-                  Emai Language Resources
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                  Comprehensive collection of Emai language materials available on Google Books.
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Access Resource
-                </Button>
-              </a>
-
-              <a
-                href="https://share.google/EtC46ijwORx2KXNeG"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background block"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
-                    Online
-                  </span>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                <div className="h-1/3 p-6 flex flex-col justify-center">
+                  <h3 className="font-serif text-lg font-bold group-hover:text-primary transition-colors line-clamp-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm line-clamp-2 mt-2">{item.desc}</p>
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
-                  Emai Language Study Materials
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                  Academic materials and publications on Emai language from Blackwell's.
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Access Resource
-                </Button>
-              </a>
-
-              <a
-                href="https://openlibrary.org/works/OL23830644W/New_perspectives_in_Edoid_studies"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-6 border border-border hover:border-primary transition-all hover-lift bg-background block"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-secondary text-secondary-foreground">
-                    Online
-                  </span>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground" />
+                <div className="absolute top-4 right-4 bg-primary text-white p-2 rounded-full transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl">
+                  <ExternalLink className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
-                  New Perspectives in Edoid Studies
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                  Academic research by Ronald P. Schaefer, Ohioma Ifounu Pogoson, and Francis O. Egbokhare on Edoid languages including Emai.
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  Access Resource
-                </Button>
               </a>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-
-
       {/* CTA */}
-      <section className="section-padding bg-cream">
-        <div className="container-narrow text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+        <div className="container-narrow text-center relative z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
             Contribute to Our Resources
           </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-primary-foreground/90 text-xl mb-10 max-w-xl mx-auto">
             Have research, translations, or educational materials to share?
-            We welcome contributions from the Naijá community.
+            We welcome contributions from the community.
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" variant="secondary" className="rounded-full px-10 py-7 text-lg shadow-xl hover:shadow-primary/20 transition-all">
             <a href="/contact">Get in Touch</a>
           </Button>
         </div>

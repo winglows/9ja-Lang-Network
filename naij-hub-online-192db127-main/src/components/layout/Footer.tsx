@@ -6,47 +6,30 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-primary-foreground">
-      <div className="container-wide section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-foreground text-primary-foreground border-t border-white/5">
+      <div className="container-wide py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img src={Logo} alt="Naijá Language Network Logo" className="w-12 h-12" />
-              <span className="font-serif text-xl font-semibold">Naijá Language Network</span>
+              <span className="font-serif text-xl font-bold tracking-tight">Naijá Language Network</span>
             </div>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Celebrating Naijá — Nigeria's Pidgin Language & Culture. Connecting scholars, 
+            <p className="text-primary-foreground/80 text-base leading-relaxed max-w-sm">
+              Celebrating Naijá — Nigeria's Pidgin Language & Culture. Connecting scholars,
               writers, creators, and community members worldwide.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-serif text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {["About", "Media", "Resources", "Contact"].map((item) => (
+          <div className="lg:pl-8">
+            <h4 className="font-serif text-xl font-bold mb-4 text-primary">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-y-3 gap-x-4">
+              {["About", "Media", "Resources", "Contact", "People"].map((item) => (
                 <li key={item}>
                   <Link
                     to={`/${item.toLowerCase()}`}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-serif text-lg font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2">
-              {["Naijá Dictionary", "Research Papers", "Conference Archives", "Pidgin Stew"].map((item) => (
-                <li key={item}>
-                  <Link
-                    to="/resources"
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-primary-foreground/80 hover:text-primary transition-colors text-base font-medium"
                   >
                     {item}
                   </Link>
@@ -56,49 +39,30 @@ const Footer = () => {
           </div>
 
           {/* Connect */}
-          <div>
-            <h4 className="font-serif text-lg font-semibold mb-4">Connect With Us</h4>
-            <div className="flex gap-4 mb-6">
-              <a
-                href="https://www.youtube.com/@9jaLanguageNetwork"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all"
-                aria-label="YouTube"
-              >
-                <Youtube className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/9jalanguagenetwork/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://x.com/Naija_na_Helele"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="https://web.facebook.com/profile.php?id=61564386710628"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
+          <div className="lg:pl-8">
+            <h4 className="font-serif text-xl font-bold mb-4 text-primary">Connect With Us</h4>
+            <div className="flex gap-3 mb-6">
+              {[
+                { icon: Youtube, href: "https://www.youtube.com/@9jaLanguageNetwork", label: "YouTube" },
+                { icon: Instagram, href: "https://www.instagram.com/9jalanguagenetwork/", label: "Instagram" },
+                { icon: Twitter, href: "https://x.com/Naija_na_Helele", label: "Twitter" },
+                { icon: Facebook, href: "https://web.facebook.com/profile.php?id=61564386710628", label: "Facebook" }
+              ].map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                  aria-label={item.label}
+                >
+                  <item.icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
-            <div className="flex items-center gap-2 text-primary-foreground/70 text-sm">
-              <Mail className="h-4 w-4" />
-              <a href="mailto:naijalanguagenetwork@gmail.com" className="hover:text-primary-foreground transition-colors">
+            <div className="flex items-center gap-3 text-primary-foreground/80 text-base font-medium">
+              <Mail className="h-5 w-5 text-primary" />
+              <a href="mailto:naijalanguagenetwork@gmail.com" className="hover:text-primary transition-colors">
                 naijalanguagenetwork@gmail.com
               </a>
             </div>
@@ -106,8 +70,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-foreground/60 text-sm">
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-primary-foreground/60 text-base">
             © {currentYear} Naijá Language Network. All rights reserved.
           </p>
         </div>

@@ -2,7 +2,7 @@ import HeroCarousel from './HeroCarousel';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative overflow-hidden">
       <HeroCarousel />
     </section>
   );

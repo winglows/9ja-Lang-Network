@@ -1,68 +1,57 @@
-import { BookOpen, Globe, Users, MessageCircle } from "lucide-react";
-import SectionHeader from "@/components/ui/SectionHeader";
-
-const historyPoints = [
-  {
-    icon: Globe,
-    title: "Origins & Evolution",
-    description:
-      "Naijá (Nigerian Pidgin) emerged from centuries of contact between Nigerian languages and English, evolving into a vibrant creole spoken by over 75 million people across Nigeria and the diaspora.",
-  },
-  {
-    icon: Users,
-    title: "A Lingua Franca",
-    description:
-      "As Nigeria's most widely spoken language, Naijá bridges ethnic and linguistic divides, serving as a unifying force across the nation's 500+ indigenous languages.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Cultural Expression",
-    description:
-      "From Nollywood films to Afrobeats music, Naijá has become the voice of Nigerian popular culture, expressing identity, humor, and social commentary with unique flair.",
-  },
-  {
-    icon: BookOpen,
-    title: "Growing Recognition",
-    description:
-      "Today, Naijá is gaining academic recognition with dictionaries, grammars, and scholarly research affirming its status as a legitimate and dynamic language system.",
-  },
-];
+import pic1 from "@/assets/about-us-pics/about-us-pics.jpeg";
+import pic2 from "@/assets/about-us-pics/about-us-pics2.jpeg";
 
 const HistorySection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-muted/30">
+    <section className="py-24 md:py-32 bg-white overflow-hidden">
       <div className="container-wide">
-        <div className="text-center mb-4">
-          <span className="inline-block text-primary font-semibold uppercase tracking-widest text-sm">
-            Our Heritage
-          </span>
-        </div>
-        <SectionHeader
-          title="History of Naijá"
-          subtitle="The language is traceable to the early efforts of the Dutch and then the Portuguese in the 14th Century. Around the 18th -19th century, the trade relations between the British and hinterland areas of the West Africa Coast gave birth to the form and forms that gradually began to spread and creolise in areas of present day Niger Delta region of Nigeria. Naijá represents a form of that early language which today is commonly spoken across Nigeria, parts of West and Central Africa and in many parts where the diaspora populations thrive in Europe."
-        />
-
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
-          {historyPoints.map((point, index) => (
-            <div
-              key={index}
-              className="bg-background p-8 rounded-lg border border-border hover:border-primary/30 transition-colors group"
-            >
-              <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <point.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
-                {point.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {point.description}
-              </p>
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Left Content */}
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <span className="inline-block text-primary font-bold uppercase tracking-widest text-sm text-left block">
+                Our Heritage
+              </span>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-left">
+                History of Naijá
+              </h2>
             </div>
-          ))}
-        </div>
 
-        <div className="mt-16 p-8 bg-primary/5 border border-primary/20 rounded-lg">
-          
+            <div className="prose prose-lg max-w-none space-y-6">
+              <p className="text-muted-foreground text-xl leading-relaxed text-left">
+                The language is traceable to the early efforts of the Dutch and then the Portuguese in the 14th Century. Around the 18th -19th century, the trade relations between the British and hinterland areas of the West Africa Coast gave birth to the form and forms that gradually began to spread and creolise in areas of present day Niger Delta region of Nigeria.
+              </p>
+              <p className="text-muted-foreground text-xl leading-relaxed text-left">
+                Naijá represents a form of that early language which today is commonly spoken across Nigeria, parts of West and Central Africa and in many parts where the diaspora populations thrive in Europe.
+              </p>
+              <div className="py-4 border-l-4 border-primary pl-8 bg-primary/5 rounded-r-2xl">
+                <p className="text-foreground font-medium text-lg leading-relaxed italic text-left">
+                  "Naijá has evolved from a trade language into a powerful symbol of Nigerian identity, unity, and global cultural influence."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Images - Simple Duo Composition */}
+          <div className="relative h-[650px] w-full flex items-center">
+            {/* Left Image of the duo */}
+            <div className="w-[60%] h-[75%] rounded-[2.5rem] overflow-hidden shadow-2xl z-10 group transform -rotate-2">
+              <img
+                src={pic1}
+                alt="Heritage 1"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+
+            {/* Right Image of the duo */}
+            <div className="w-[60%] h-[75%] -ml-[20%] mt-[15%] rounded-[2.5rem] overflow-hidden shadow-3xl z-20 border-8 border-white group transform rotate-2 hover:rotate-0 transition-all duration-500">
+              <img
+                src={pic2}
+                alt="Heritage 2"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

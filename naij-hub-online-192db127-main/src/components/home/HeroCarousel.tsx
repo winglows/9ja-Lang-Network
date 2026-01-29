@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-
+import { ArrowRight } from "lucide-react";
 import img1 from "../../assets/slide-1.jpg";
 import img2 from "../../assets/slide-2.jpg";
 import img3 from "../../assets/slide-3.jpg";
@@ -10,39 +10,34 @@ type Slide = {
   image: string;
   title: string;
   description: string;
-  position?: string; // CSS object-position value (e.g. 'center top')
+  position?: string;
 };
 
 const slides: Slide[] = [
   {
     image: img1,
     title: "Institutionalising Naijá for Generations",
-    description:
-      "Preserving Naijá (Nigerian Pidgin) as a living linguistic heritage—rooted in the past, thriving in the present, and evolving for future generations within a global cultural space.",
+    description: "Preserving Nigerian Pidgin as a living linguistic heritage—rooted in the past, thriving in the present, and evolving for the future.",
     position: "center top",
   },
   {
     image: img2,
     title: "Celebrating Indigenous African Languages",
-    description:
-      "Advancing the recognition, documentation, and global relevance of Nigerian and African indigenous languages through strategic branding, research, and sustainable language development initiatives.",
+    description: "Advancing the recognition and global relevance of African languages through strategic research and sustainable development.",
     position: "center center",
   },
   {
     image: img3,
-    title: "Collaboration That Drives Language Growth",
-    description:
-      "Building a progressive network of researchers, translators, language technologists, educators, media experts, content creators, artists, and cultural advocates working together for impactful language transformation.",
+    title: "Collaboration That Drives Growth",
+    description: "Building a progressive network of researchers, creators, and advocates working together for impactful language transformation.",
     position: "center center",
   },
-  // Fourth slide removed per request; carousel now contains 3 slides
 ];
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<number | null>(null);
-  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     if (isPaused) return;
@@ -58,100 +53,51 @@ export default function HeroCarousel() {
     setIndex(((i % slides.length) + slides.length) % slides.length);
   }
 
-  function prev() {
-    goTo(index - 1);
-  }
-
-  function next() {
-    goTo(index + 1);
-  }
-
-  function handleTouchStart(e: React.TouchEvent) {
-    touchStartX.current = e.touches[0].clientX;
-  }
-
-  function handleTouchEnd(e: React.TouchEvent) {
-    if (touchStartX.current == null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(dx) > 50) {
-      if (dx > 0) prev();
-      else next();
-    }
-    touchStartX.current = null;
-  }
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft") {
-        setIndex((i) => (i - 1 + slides.length) % slides.length);
-      }
-      if (e.key === "ArrowRight") {
-        setIndex((i) => (i + 1) % slides.length);
-      }
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
   return (
     <section
-      aria-roledescription="carousel"
-      aria-label="Hero carousel"
       className="relative w-full h-screen overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       {slides.map((s, i) => (
         <div
           key={i}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            i === index
-              ? "opacity-100 z-10"
-              : "opacity-0 z-0 pointer-events-none"
-          }`}
-          aria-hidden={i === index ? "false" : "true"}
+          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${i === index ? "opacity-100 scale-100 z-10" : "opacity-0 scale-110 z-0"
+            }`}
         >
-          <div className="absolute inset-0 bg-black">
-            {/*
-              Use object-contain so the image fits the viewport without awkward cropping.
-              Keep the image centered; overlay reduced so text doesn't fully block the image.
-            */}
+          <div className="absolute inset-0">
             <img
               src={s.image}
               alt={s.title}
-              style={{ objectPosition: s.position || "center" }}
-              className="w-full h-full object-cover object-center bg-black"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
           </div>
 
-          <div className="absolute inset-0 z-20 flex items-center justify-center">
-            <div className="container mx-auto px-6 md:px-12 lg:px-20">
-              <div className="max-w-3xl text-center">
-                <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight mb-4 text-gray-300">
-                  {s.title}
-                </h2>
-                <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-6">
-                  {s.description}
-                </p>
+          <div className="absolute inset-0 z-20 flex items-center">
+            <div className="container-wide">
+              <div className="max-w-2xl space-y-8 animate-in slide-in-from-left duration-1000">
+                <div className="space-y-4">
+                  <h2 className="font-serif font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.1] text-white">
+                    {s.title}
+                  </h2>
+                  <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-xl">
+                    {s.description}
+                  </p>
+                </div>
 
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center gap-6">
                   <a
                     href="/about"
-                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-none font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-green-300"
+                    className="bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl flex items-center gap-2 group"
                   >
-                    Learn More
+                    Learn More <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
-
                   <a
                     href="/media"
-                    className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-none font-semibold border border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-full font-bold transition-all hover:scale-105"
                   >
-                    See Media
+                    Watch Media
                   </a>
                 </div>
               </div>
@@ -160,51 +106,14 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Prev/Next */}
-      <button
-        aria-label="Previous slide"
-        onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 rounded-full bg-black/40 text-white p-2 hover:bg-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-      >
-        <span className="sr-only">Previous</span>
-        <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" aria-hidden>
-          <path
-            d="M12 15L7 10l5-5"
-            stroke="currentColor"
-            strokeWidth={1.6}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-
-      <button
-        aria-label="Next slide"
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 rounded-full bg-black/40 text-white p-2 hover:bg-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-      >
-        <span className="sr-only">Next</span>
-        <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" aria-hidden>
-          <path
-            d="M8 5l5 5-5 5"
-            stroke="currentColor"
-            strokeWidth={1.6}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-
       {/* Indicators */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-6 z-30 flex gap-2">
+      <div className="absolute left-[max(2rem,calc((100vw-1280px)/2))] bottom-12 z-30 flex gap-3">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`w-3 h-3 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-colors ${
-              i === index ? "bg-white" : "bg-white/40"
-            }`}
+            className={`transition-all duration-500 rounded-full ${i === index ? "w-12 h-3 bg-primary" : "w-3 h-3 bg-white/40 hover:bg-white"
+              }`}
           />
         ))}
       </div>

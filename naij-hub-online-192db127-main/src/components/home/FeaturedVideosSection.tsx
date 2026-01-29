@@ -32,7 +32,7 @@ const FeaturedVideosSection = () => {
   >(null);
 
   return (
-    <section className="section-padding bg-cream">
+    <section className="section-padding bg-[#fffbf2]">
       <div className="container-wide">
         <SectionHeader
           title="Featured Videos"
