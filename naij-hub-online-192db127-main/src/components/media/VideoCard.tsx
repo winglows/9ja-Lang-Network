@@ -9,11 +9,11 @@ interface VideoCardProps {
 
 const VideoCard = ({ videoId, title, description, onClick }: VideoCardProps) => {
   return (
-    <div 
+    <div
       className="group cursor-pointer hover-lift"
       onClick={onClick}
     >
-      <div className="relative aspect-video bg-muted overflow-hidden mb-4">
+      <div className="relative aspect-video bg-muted overflow-hidden mb-4 rounded-xl">
         <img
           src={`https://img.youtube.com/vi/${videoId}/sddefault.jpg`}
           alt={title}
@@ -24,7 +24,7 @@ const VideoCard = ({ videoId, title, description, onClick }: VideoCardProps) => 
           }}
         />
         <div className="absolute inset-0 bg-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-16 h-16 bg-primary flex items-center justify-center">
+          <div className="w-16 h-16 bg-primary flex items-center justify-center rounded-full">
             <Play className="w-8 h-8 text-primary-foreground fill-current" />
           </div>
         </div>

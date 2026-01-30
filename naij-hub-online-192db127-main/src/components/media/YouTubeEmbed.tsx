@@ -5,7 +5,7 @@ interface YouTubeEmbedProps {
 
 const YouTubeEmbed = ({ videoId, title = "YouTube Video" }: YouTubeEmbedProps) => {
   return (
-    <div className="relative w-full aspect-video bg-muted overflow-hidden group">
+    <div className="relative w-full aspect-video bg-muted overflow-hidden group rounded-xl">
       <iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         title={title}

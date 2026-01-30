@@ -93,12 +93,12 @@ const Media = () => {
           />
 
           <Tabs defaultValue="featured" className="w-full">
-            <TabsList className="w-full justify-start mb-8 bg-transparent border-b border-border rounded-none h-auto p-0 gap-0">
+            <TabsList className="w-full justify-start mb-8 bg-transparent border-b border-border h-auto p-0 gap-0">
               {Object.keys(videoCategories).map((category) => (
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="capitalize px-6 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
+                  className="capitalize px-6 py-4 border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
                 >
                   {category}
                 </TabsTrigger>

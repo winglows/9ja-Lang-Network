@@ -15,7 +15,7 @@ const teamMembers = [
   {
     name: "Francis Egbokhare",
     role: "President, (FNAL, FLAN)",
-    bio: "Francis Egbokhare is a distinguished Nigerian scholar and Professor of Linguistics at the University of Ibadan, where he made history in 1999 as one of the institution’s youngest full professors at the age of 37. A former President and Fellow of the Nigerian Academy of Letters (NAL), he is globally recognized for his extensive work in African linguistics, specifically for the codification of the Emai language and his pioneering advocacy for Nigerian Pidgin (Naija) studies. Throughout his career, he has held pivotal leadership roles, including serving as the Director of the University of Ibadan's Distance Learning Centre, where he led transformative reforms in e-learning and expanded educational access to thousands of students. Beyond his academic achievements, Professor Egbokhare is a prolific poet, social critic, and public intellectual. He authored the long-running column \"Preying Mantis\" in the Sunday Tribune, where he addressed critical issues of national integrity, education, and social justice. His literary works, such as the acclaimed poetry anthology Echoes and Chimes (2020), offer poignant critiques of postcolonial conditions and institutional corruption. As a consultant and thought leader, he remains a vocal advocate for qualitative education and systems reform, consistently contributing to national discourse through platforms like BusinessDay NG ",
+    bio: "Francis Egbokhare is a distinguished Nigerian scholar and Professor of Linguistics at the University of Ibadan, where he made history in 1999 as one of the institution’s youngest full professors at the age of 37. A former President and Fellow of the Nigerian Academy of Letters (NAL), he is globally recognized for his extensive work in African linguistics, specifically for the codification of the Emai language and his pioneering advocacy for Nigerian Pidgin (Naija) studies. Throughout his career, he has held pivotal leadership roles, including serving as the Director of the University of Ibadan's Distance Learning Centre, where he led transformative reforms in e-learning and expanded educational access to thousands of students. Beyond his academic achievements, Professor Egbokhare is a prolific poet, social critic, and public intellectual. He authored the long-running column \"Preying Mantis\" in the Sunday Tribune, where he addressed critical issues of national integrity, education, and social justice. His literary works, such as the acclaimed poetry anthology Echoes and Chimes (2020), offer poignant critiques of postcolonial conditions and institutional corruption. As a consultant and thought leader, he remains a vocal advocate for qualitative education and systems reform, consistently contributing to national discourse through platforms like BusinessDay NG.",
     image: Egbokhare,
   },
   {
@@ -77,8 +77,8 @@ const People = () => {
 
           <div className="flex flex-col gap-8">
             {teamMembers.map((member, index) => (
-              <div key={member.name} className="group bg-background border border-border p-6 flex flex-col md:flex-row gap-8 items-start md:items-center transform transition-all duration-300 hover:shadow-lg">
-                <div className="relative overflow-hidden w-full md:w-48 h-48 flex-shrink-0">
+              <div key={member.name} className="group bg-background border border-border p-6 rounded-xl flex flex-col md:flex-row gap-8 items-start md:items-center transform transition-all duration-300 hover:shadow-lg">
+                <div className="relative overflow-hidden w-full md:w-48 h-48 flex-shrink-0 rounded-xl">
                   {member.image ? (
                     <img
                       src={member.image}
@@ -123,7 +123,7 @@ const People = () => {
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 h-14 px-10 text-base font-semibold uppercase tracking-wider bg-gold text-accent-foreground hover:bg-gold/90 transition-colors"
+            className="inline-flex items-center justify-center gap-2 h-14 px-10 text-base font-semibold uppercase tracking-wider bg-gold text-accent-foreground hover:bg-gold/90 transition-colors rounded-full"
           >
             Get Involved
           </a>

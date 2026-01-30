@@ -10,7 +10,7 @@ import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import People from "./pages/People";
 import NotFound from "./pages/NotFound";
-import MaterialsUnavailable from "./pages/MaterialsUnavailable";
+
 import useScrollToTop from "./hooks/useScrollToTop";
 
 const queryClient = new QueryClient();
@@ -25,7 +25,7 @@ const AppRoutes = () => {
       <Route path="/resources" element={<Resources />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/people" element={<People />} />
-      <Route path="/materials-unavailable" element={<MaterialsUnavailable />} />
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

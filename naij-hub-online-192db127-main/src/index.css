@@ -34,7 +34,7 @@
     --input: 145 20% 88%;
     --ring: 145 55% 32%;
 
-    --radius: 0px;
+    --radius: 0.5rem;
 
     /* Custom tokens */
     --green-light: 145 40% 92%;
