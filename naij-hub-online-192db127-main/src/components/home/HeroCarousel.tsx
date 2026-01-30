@@ -86,16 +86,16 @@ export default function HeroCarousel() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <a
                     href="/about"
-                    className="bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl flex items-center gap-2 group"
+                    className="bg-primary hover:bg-primary/90 text-white px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl flex items-center gap-2 group text-sm sm:text-base w-full sm:w-auto justify-center"
                   >
-                    Learn More <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    Learn More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <a
                     href="/media"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-full font-bold transition-all hover:scale-105"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 text-sm sm:text-base w-full sm:w-auto justify-center text-center"
                   >
                     Watch Media
                   </a>

@@ -75,9 +75,7 @@ const ConferenceSection = () => {
             </div>
 
             {/* Floating Element */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gold rounded-full z-40 flex items-center justify-center shadow-2xl animate-pulse">
-              <span className="text-primary font-black text-2xl">2024</span>
-            </div>
+
           </div>
         </div>
       </div>

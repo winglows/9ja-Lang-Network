@@ -93,6 +93,12 @@ const Resources = () => {
             </p>
           </div>
 
+          <div className="mb-10 text-center">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground inline-block border-b-2 border-primary pb-2">
+              Featured Resources
+            </h3>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {naijaGallery.map((img, idx) => (
               <div
