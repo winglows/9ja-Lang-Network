@@ -41,7 +41,7 @@ const Navbar = () => {
       )}
     >
       <nav className="container-wide">
-        <div className="flex items-center justify-between h-24 lg:h-20">
+        <div className="flex items-center justify-between h-28 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
@@ -89,9 +89,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-20 w-20 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
+              <X className="h-24 w-24 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
             ) : (
-              <Menu className="h-20 w-20 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
+              <Menu className="h-24 w-24 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
             )}
           </Button>
         </div>
@@ -105,7 +105,7 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    "text-2xl font-semibold tracking-wide uppercase transition-colors py-5 px-4 rounded-md hover:bg-muted",
+                    "text-base font-medium tracking-wide uppercase transition-colors py-3 px-4 rounded-md hover:bg-muted",
                     location.pathname === link.path
                       ? "text-primary bg-primary/5"
                       : "text-black hover:text-foreground"
