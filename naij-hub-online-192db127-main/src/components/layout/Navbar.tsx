@@ -72,8 +72,8 @@ const Navbar = () => {
                   location.pathname === link.path
                     ? "text-primary"
                     : scrolled
-                    ? "text-black hover:text-foreground"
-                    : "text-gray-300 hover:text-foreground"
+                      ? "text-black hover:text-foreground"
+                      : "text-gray-300 hover:text-foreground"
                 )}
               >
                 {link.name}
@@ -84,12 +84,11 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
-            size="icon"
-            className="lg:hidden"
+            className="lg:hidden p-0 h-auto w-auto hover:bg-transparent"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-12 w-12 text-white" /> : <Menu className="h-12 w-12 text-white" />}
           </Button>
         </div>
 
