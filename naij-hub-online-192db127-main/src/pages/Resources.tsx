@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, X, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import bannerImage from "@/assets/banners/Banner4Resources.jpeg";
 
@@ -200,7 +201,7 @@ const Resources = () => {
             We welcome contributions from the community.
           </p>
           <Button asChild size="lg" variant="secondary" className="rounded-full px-10 py-7 text-lg shadow-xl hover:shadow-primary/20 transition-all">
-            <a href="/contact">Get in Touch</a>
+            <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>
       </section>

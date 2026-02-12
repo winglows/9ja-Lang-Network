@@ -1,4 +1,5 @@
 import { Globe, User } from "lucide-react";
+import { Link } from "react-router-dom";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import Egbokhare from "@/assets/Professor-Egbokhare.jpg";
 import Akinmade from "@/assets/Professor-Akinmade.jpg";
@@ -121,12 +122,12 @@ const People = () => {
             Whether you're a scholar, creator, or simply passionate about Naijá,
             there's a place for you in our community.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center justify-center gap-2 h-14 px-10 text-base font-semibold uppercase tracking-wider bg-gold text-accent-foreground hover:bg-gold/90 transition-colors rounded-full"
           >
             Get Involved
-          </a>
+          </Link>
         </div>
       </section>
     </Layout>

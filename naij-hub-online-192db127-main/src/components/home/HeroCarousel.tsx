@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import img1 from "../../assets/slide-1.jpg";
 import img2 from "../../assets/slide-2.jpg";
 import img3 from "../../assets/slide-3.jpg";
@@ -87,18 +88,18 @@ export default function HeroCarousel() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                  <a
-                    href="/about"
+                  <Link
+                    to="/about"
                     className="bg-primary hover:bg-primary/90 text-white px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl flex items-center gap-2 group text-sm sm:text-base w-full sm:w-auto justify-center"
                   >
                     Learn More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a
-                    href="/media"
+                  </Link>
+                  <Link
+                    to="/media"
                     className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 text-sm sm:text-base w-full sm:w-auto justify-center text-center"
                   >
                     Watch Media
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
