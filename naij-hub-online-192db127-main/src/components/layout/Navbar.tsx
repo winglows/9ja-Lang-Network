@@ -41,13 +41,13 @@ const Navbar = () => {
       )}
     >
       <nav className="container-wide">
-        <div className="flex items-center justify-between h-28 lg:h-20">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
               src={Logo}
               alt="9ja Language Network logo"
-              className="w-10 h-10 object-contain"
+              className="w-8 h-8 lg:w-10 lg:h-10 object-contain"
             />
             <div className="hidden sm:block">
               <span
@@ -89,9 +89,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-24 w-24 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
+              <X className="h-12 w-12 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
             ) : (
-              <Menu className="h-24 w-24 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
+              <Menu className="h-12 w-12 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" />
             )}
           </Button>
         </div>

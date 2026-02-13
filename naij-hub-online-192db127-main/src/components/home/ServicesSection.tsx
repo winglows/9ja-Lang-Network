@@ -21,7 +21,7 @@ const ServicesSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Right Section - Image Collage FIRST for visual variety */}
           {/* Right Section - Image Collage FIRST for visual variety */}
-          <div className="relative h-auto md:h-[650px] order-2 lg:order-1 flex flex-col md:block gap-6">
+          <div className="relative h-auto md:h-[650px] order-2 lg:order-1 flex flex-col md:block gap-1">
             <div className="relative md:absolute top-0 left-0 w-full md:w-[70%] h-64 md:h-[60%] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl z-10 border-0 md:border-4 md:border-white/50 group">
               <img src={slide2} alt="Facilitation" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
