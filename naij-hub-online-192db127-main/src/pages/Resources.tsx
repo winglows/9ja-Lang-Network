@@ -49,6 +49,57 @@ const EmaiLinks = [
   }
 ];
 
+const ResourceCard = ({ item, onImageClick }: { item: typeof EmaiLinks[0]; onImageClick: () => void }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isLongDesc = item.desc.length > 80;
+
+  return (
+    <div className="group bg-background overflow-hidden rounded-3xl shadow-lg border border-border/50 hover:border-primary transition-all duration-500 relative flex flex-col h-full">
+      {/* Image Section - Clickable for Modal */}
+      <div
+        className="cursor-pointer overflow-hidden relative shadow-sm hover:shadow-md transition-all bg-secondary/5 h-64 md:h-80"
+        onClick={onImageClick}
+      >
+        <img
+          src={item.img}
+          alt={item.title}
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 p-2"
+        />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+          <Search className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+        </div>
+      </div>
+
+      {/* Content Section - Link for Title, Expandable Desc */}
+      <div className="p-6 flex flex-col flex-1">
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-serif text-lg font-bold group-hover:text-primary transition-colors hover:underline mb-2 block flex items-center gap-2"
+        >
+          {item.title}
+          <ExternalLink className="w-4 h-4 text-muted-foreground" />
+        </a>
+
+        <div className="mt-auto">
+          <p className={`text-muted-foreground text-sm ${isExpanded ? "" : "line-clamp-2"}`}>
+            {item.desc}
+          </p>
+          {isLongDesc && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-primary text-xs font-bold mt-2 uppercase tracking-wide hover:underline focus:outline-none"
+            >
+              {isExpanded ? "Show Less" : "See More"}
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Resources = () => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
@@ -170,29 +221,17 @@ const Resources = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
             {EmaiLinks.map((item, idx) => (
-              <a
+              <ResourceCard
                 key={idx}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-background aspect-square overflow-hidden rounded-3xl shadow-lg border border-border/50 hover:border-primary transition-all duration-500 relative flex flex-col"
-              >
-                <div className="h-2/3 overflow-hidden relative">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="h-1/3 p-6 flex flex-col justify-center">
-                  <h3 className="font-serif text-lg font-bold group-hover:text-primary transition-colors line-clamp-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm line-clamp-2 mt-2">{item.desc}</p>
-                </div>
-                <div className="absolute top-4 right-4 bg-primary text-white p-2 rounded-full transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl">
-                  <ExternalLink className="w-5 h-5" />
-                </div>
-              </a>
+                item={item}
+                onImageClick={() => setSelectedImg(item.img)}
+              />
             ))}
           </div>
+
+
         </div>
       </section>
 
