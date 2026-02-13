@@ -67,17 +67,17 @@ const MissionSection = () => {
           </div>
 
           {/* Right Images - Asymmetrical Composition */}
-          <div className="relative h-[600px] w-full">
-            <div className="absolute top-0 right-0 w-[85%] h-[80%] rounded-[2rem] overflow-hidden shadow-2xl z-10 group">
+          <div className="relative h-auto md:h-[600px] w-full flex flex-col md:block gap-6 order-last md:order-none">
+            <div className="relative md:absolute top-0 right-0 w-full md:w-[85%] h-64 md:h-[80%] rounded-[2rem] overflow-hidden shadow-2xl z-10 group">
               <img src={mission1} alt="Mission" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
-            <div className="absolute bottom-0 left-0 w-[60%] h-[55%] rounded-[2rem] overflow-hidden shadow-2xl z-20 border-8 border-background group transform -rotate-3 hover:rotate-0 transition-all duration-500">
+            <div className="relative md:absolute bottom-0 left-0 w-full md:w-[60%] h-64 md:h-[55%] rounded-[2rem] overflow-hidden shadow-2xl z-20 border-0 md:border-8 md:border-background group transform md:-rotate-3 hover:rotate-0 transition-all duration-500">
               <img src={mission2} alt="Focus" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
 
             {/* Decorative Element */}
-            <div className="absolute top-1/4 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl z-0" />
-            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl z-30 flex items-center justify-center p-3 animate-bounce shadow-primary/20">
+            <div className="hidden md:block absolute top-1/4 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl z-0" />
+            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl z-30 flex items-center justify-center p-3 animate-bounce shadow-primary/20 hidden md:flex">
               <img src={logo} alt="Naija Logo" className="w-full h-full object-contain" />
             </div>
           </div>

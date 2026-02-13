@@ -55,20 +55,27 @@ const Resources = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative h-[70vh] flex items-center pt-20 overflow-hidden">
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center pt-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <img src={bannerImage} alt="Hero Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/70"></div>
+          <img
+            src={bannerImage}
+            alt="Hero Background"
+            className="w-full h-full object-cover object-center transition-transform duration-[10000ms] group-hover:scale-110"
+          />
+          {/* Desktop Gradient */}
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          {/* Mobile Gradient */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
         </div>
-        <div className="container-wide relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80">
+        <div className="container-wide relative z-10 px-6 md:px-0">
+          <div className="max-w-3xl animate-in slide-in-from-bottom duration-1000">
+            <span className="inline-block font-semibold uppercase tracking-widest text-sm mb-4 text-white/80 drop-shadow-md">
               Resources
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
               Learn & Explore
             </h1>
-            <p className="text-white/90 text-xl leading-relaxed">
+            <p className="text-white/90 text-lg md:text-xl leading-relaxed drop-shadow-md">
               Featuring Naijá together with indigenous Nigerian/African languages as global generational artifacts from the past, to the present, and the future.
             </p>
           </div>

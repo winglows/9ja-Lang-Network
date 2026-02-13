@@ -70,33 +70,37 @@ export default function HeroCarousel() {
             <img
               src={s.image}
               alt={s.title}
-              className="w-full h-full object-cover"
+              style={{ objectPosition: s.position || "center" }}
+              className="w-full h-full object-cover transition-transform duration-[10000ms] hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
+            {/* Desktop Gradient Overlay */}
+            <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
+            {/* Mobile Gradient Overlay (Vertical for better readability) */}
+            <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
           </div>
 
           <div className="absolute inset-0 z-20 flex items-center">
-            <div className="container-wide">
-              <div className="max-w-2xl space-y-8 animate-in slide-in-from-left duration-1000">
+            <div className="container-wide w-full">
+              <div className="max-w-2xl space-y-6 md:space-y-8 animate-in slide-in-from-left duration-1000 px-4 sm:px-0">
                 <div className="space-y-4">
-                  <h2 className="font-serif font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.1] text-white">
+                  <h2 className="font-serif font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-[1.1] text-white">
                     {s.title}
                   </h2>
-                  <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-xl">
+                  <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-xl">
                     {s.description}
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
                   <Link
                     to="/about"
-                    className="bg-primary hover:bg-primary/90 text-white px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl flex items-center gap-2 group text-sm sm:text-base w-full sm:w-auto justify-center"
+                    className="bg-primary hover:bg-primary/90 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl flex items-center gap-2 group text-base w-full sm:w-auto justify-center"
                   >
-                    Learn More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                    Learn More <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link
                     to="/media"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 text-sm sm:text-base w-full sm:w-auto justify-center text-center"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold transition-all hover:scale-105 text-base w-full sm:w-auto justify-center text-center"
                   >
                     Watch Media
                   </Link>

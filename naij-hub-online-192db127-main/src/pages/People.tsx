@@ -57,18 +57,23 @@ const People = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative h-[70vh] flex items-center pt-20 overflow-hidden">
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center pt-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <img src={bannerImage} alt="Hero Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/70"></div>
+          <img
+            src={bannerImage}
+            alt="Hero Background"
+            className="w-full h-full object-cover object-top transition-transform duration-[10000ms] group-hover:scale-110"
+          />
+          {/* Desktop Gradient */}
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          {/* Mobile Gradient */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
         </div>
-        <div className="container-wide relative z-10">
-          <div className="max-w-3xl">
-
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+        <div className="container-wide relative z-10 px-6 md:px-0">
+          <div className="max-w-3xl animate-in slide-in-from-bottom duration-1000">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
               Meet Our People
             </h1>
-
           </div>
         </div>
       </section>
@@ -78,13 +83,13 @@ const People = () => {
 
           <div className="flex flex-col gap-8">
             {teamMembers.map((member, index) => (
-              <div key={member.name} className="group bg-background border border-border p-6 rounded-xl flex flex-col md:flex-row gap-8 items-start md:items-center transform transition-all duration-300 hover:shadow-lg">
-                <div className="relative overflow-hidden w-full md:w-48 h-48 flex-shrink-0 rounded-xl">
+              <div key={member.name} className="group bg-background border border-border p-6 rounded-xl flex flex-col md:flex-row gap-8 items-start md:items-center transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="relative overflow-hidden w-full md:w-48 h-64 md:h-48 flex-shrink-0 rounded-xl shadow-md">
                   {member.image ? (
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-contain md:object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full bg-muted flex items-center justify-center">

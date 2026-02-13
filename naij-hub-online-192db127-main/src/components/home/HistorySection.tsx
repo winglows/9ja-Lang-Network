@@ -33,9 +33,9 @@ const HistorySection = () => {
           </div>
 
           {/* Right Images - Simple Duo Composition */}
-          <div className="relative h-[650px] w-full flex items-center">
+          <div className="relative h-auto md:h-[650px] w-full flex flex-col md:flex-row md:items-center gap-6 md:gap-0 mt-8 md:mt-0">
             {/* Left Image of the duo */}
-            <div className="w-[60%] h-[75%] rounded-[2.5rem] overflow-hidden shadow-2xl z-10 group transform -rotate-2">
+            <div className="w-full md:w-[60%] h-64 md:h-[75%] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl z-10 group transform md:-rotate-2">
               <img
                 src={pic1}
                 alt="Heritage 1"
@@ -44,7 +44,7 @@ const HistorySection = () => {
             </div>
 
             {/* Right Image of the duo */}
-            <div className="w-[60%] h-[75%] -ml-[20%] mt-[15%] rounded-[2.5rem] overflow-hidden shadow-3xl z-20 border-8 border-white group transform rotate-2 hover:rotate-0 transition-all duration-500">
+            <div className="w-full md:w-[60%] h-64 md:h-[75%] md:-ml-[20%] md:mt-[15%] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-3xl z-20 border-0 md:border-8 border-white group transform md:rotate-2 hover:rotate-0 transition-all duration-500">
               <img
                 src={pic2}
                 alt="Heritage 2"

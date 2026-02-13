@@ -39,18 +39,24 @@ const Media = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative h-[70vh] flex items-center pt-20 overflow-hidden">
+      {/* Hero */}
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center pt-20 overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <img src={bannerImage} alt="Hero Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/70"></div>
+          <img
+            src={bannerImage}
+            alt="Hero Background"
+            className="w-full h-full object-cover object-center transition-transform duration-[10000ms] group-hover:scale-110"
+          />
+          {/* Desktop Gradient */}
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          {/* Mobile Gradient */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
         </div>
-        <div className="container-wide relative z-10">
-          <div className="max-w-3xl">
-
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+        <div className="container-wide relative z-10 px-6 md:px-0">
+          <div className="max-w-3xl animate-in slide-in-from-bottom duration-1000">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
               Watch & Learn
             </h1>
-
           </div>
         </div>
       </section>
@@ -59,17 +65,18 @@ const Media = () => {
       <section className="section-padding bg-primary">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-center font-serif text-2xl text-primary-foreground mb-8">
+            <h2 className="text-center font-serif text-2xl md:text-3xl text-primary-foreground mb-8">
               Latest from Naija Language Network
             </h2>
-            <div className="aspect-video">
+            <div className="aspect-video shadow-2xl rounded-xl overflow-hidden">
               <YouTubeEmbed videoId="jBV6w30PFTo" title="Latest Video" />
             </div>
-            <div className="mt-6 text-center">
+            <div className="mt-10 text-center">
               <Button
                 asChild
                 variant="hero-outline"
                 size="lg"
+                className="w-full md:w-auto text-lg h-14"
               >
                 <a
                   href="https://www.youtube.com/@9jaLanguageNetwork"
