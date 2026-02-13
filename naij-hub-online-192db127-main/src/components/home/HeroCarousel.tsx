@@ -80,13 +80,13 @@ export default function HeroCarousel() {
           </div>
 
           <div className="absolute inset-0 z-20 flex items-center">
-            <div className="container-wide w-full">
-              <div className="max-w-2xl space-y-6 md:space-y-8 animate-in slide-in-from-left duration-1000 px-4 sm:px-0">
-                <div className="space-y-4">
-                  <h2 className="font-serif font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-[1.1] text-white">
+            <div className="container-wide w-full h-full flex items-center">
+              <div className="max-w-5xl space-y-8 animate-in slide-in-from-left duration-1000 px-4 sm:px-0 pt-20">
+                <div className="space-y-6">
+                  <h2 className="font-serif font-black text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-9xl leading-[0.9] text-white tracking-tight drop-shadow-2xl">
                     {s.title}
                   </h2>
-                  <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-xl">
+                  <p className="text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed font-medium max-w-2xl drop-shadow-lg">
                     {s.description}
                   </p>
                 </div>
